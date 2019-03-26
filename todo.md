@@ -77,3 +77,18 @@ Reminder: Submission on BCS
 Please submit both the deployed Github.io link to your homework AND the link to the Github Repository!
 Minimum Requirements
 Attempt to complete homework assignment as described in instructions. If unable to complete certain portions, please pseudocode these portions to describe what remains to be completed. Adding a README.md as well as adding this homework to your portfolio are required as well and more information can be found below.
+
+**********
+only responds to keys a-z
+other keys do nothing
+incorrect guesses show up on screen striked out
+correct guesses appear on underscores
+as wrong guesses continue, more pieces appear on hangman
+10 guesses = you lose
+solved before 10 guesses = you win
+**********
+store the puzzle answers and it will choose one randomly.
+it compares keystrokes to the puzzle and if right, reveals letter(s) in answer, 
+or else it will put letter crossed out below with other wrong letters.
+if you hit 10 wrong you lose
+if you solve before 10 wrong you wins
