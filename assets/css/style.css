@@ -1,0 +1,16 @@
+.play-area {
+    padding: 30px;
+    background-color: black;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+}
+
+.guess-area {
+    padding-top: 30px;
+
+}
+.guesses-remaining {
+    padding-top: 20px;
+    font-size: 30px;
+}
