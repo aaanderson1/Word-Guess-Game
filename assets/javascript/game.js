@@ -9,7 +9,6 @@ var birdSpecies = [
     "Amazon",
     "Macaw",
     "Cockatoo",
-    "African Grey",
     "Parakeet",
     "Cockatiel",
     "Ringneck",
@@ -32,19 +31,91 @@ var birdSpecies = [
 ];
 
 var chosenWord = "";
+var gameEnded = false;
+var messageArea = document.getElementById("message-area");
+
 
 function reset(){
+    gameEnded = false;
     turnsRemaining = maxGuesses;
     guessesRemainingText.innerText = `Guesses Remaining: ${turnsRemaining}`;
     var arrayCount = birdSpecies.length; 
     var randomIndex = Math.floor(Math.random() * arrayCount);  
     console.log(randomIndex);
     chosenWord = birdSpecies[randomIndex];
+    chosenWord = chosenWord.toLowerCase();
     console.log(chosenWord);
     var tempWord = "";
     for (var i=0; i < chosenWord.length; ++i) {
         tempWord = tempWord.concat("_");
     } 
-    playText.innerHTML = tempWord;
+    playText.innerHTML = tempWord; 
+    guessText.innerHTML = "";
+    messageArea.innerHTML = "type to play";
+    guesses = "";
 }
 reset();
+
+document.addEventListener('keydown', function(event) {
+    if (event.keyCode < 65 || event.keyCode > 90) {
+        return;
+    }
+    var character = String.fromCharCode(event.keyCode); 
+    character = character.toLowerCase();
+    evaluate(character);
+});
+
+function evaluate(character) {    
+    if (gameEnded) {
+        return;
+    }
+    messageArea.innerHTML = "";
+    console.log(character); 
+    if (chosenWord.includes(character)) {
+        console.log("Correct!");
+        correct(character);
+    } else {
+        console.log("Wrong!");
+        wrong(character);
+    }
+}
+
+function correct(character) {
+    var playWord = playText.innerHTML;
+    for (var i = 0; i < chosenWord.length; ++i) {
+        if (chosenWord[i] === character && playWord[i] === "_") {
+            playWord = playWord.substring(0, i) + chosenWord[i] + playWord.substring(i + 1, chosenWord.length);
+        }
+    }
+    playText.innerHTML = playWord;
+    if (!playWord.includes("_")) {
+        win();
+    }
+}
+
+function wrong(character) {
+    if (guesses.includes(character)) {
+        return;
+    }
+    guesses = guesses.concat(character);
+    guessText.innerHTML = guesses;
+
+    turnsRemaining = turnsRemaining - 1;
+    if (turnsRemaining === 0) {
+        lose();
+    }
+
+    guessesRemainingText.innerText = `Guesses Remaining: ${turnsRemaining}`;
+}
+
+function win() {
+    gameEnded = true;
+    messageArea.innerHTML = "You Won!!";
+}
+
+function lose() {
+    gameEnded = true;
+    messageArea.innerHTML = "You Lose!!";
+    window.alert("You lose!! :-(")
+}
+

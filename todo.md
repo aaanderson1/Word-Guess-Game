@@ -91,4 +91,5 @@ store the puzzle answers and it will choose one randomly.
 it compares keystrokes to the puzzle and if right, reveals letter(s) in answer, 
 or else it will put letter crossed out below with other wrong letters.
 if you hit 10 wrong you lose
-if you solve before 10 wrong you wins
+if you solve before 10 wrong you win
+1 letter = 1 guess, will not duplicate and make score more negative.
