@@ -5,6 +5,7 @@ var results = "";
 var playText = document.getElementById("play-text");
 var guessesRemainingText = document.getElementById("guesses-remaining-text");
 var guessText = document.getElementById("guess-text");
+var birdimage = document.getElementById("birdimage");
 var birdSpecies = [
     "Amazon",
     "Macaw",
@@ -51,7 +52,7 @@ function reset(){
     } 
     playText.innerHTML = tempWord; 
     guessText.innerHTML = "";
-    messageArea.innerHTML = "type to play";
+    messageArea.innerHTML = "Type to play";
     guesses = "";
 }
 reset();
@@ -111,11 +112,20 @@ function wrong(character) {
 function win() {
     gameEnded = true;
     messageArea.innerHTML = "You Won!!";
+    revealBird();
+    reset();
 }
 
 function lose() {
     gameEnded = true;
     messageArea.innerHTML = "You Lose!!";
-    window.alert("You lose!! :-(")
+    // window.alert("You lose!! :-(");
+    revealBird();
+    reset();
+}
+
+function revealBird() {
+    birdimage.style.backgroundImage = `url(assets/images/${chosenWord}.jpg)`;
+
 }
 
