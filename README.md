@@ -1,8 +1,6 @@
 # Word-Guess-Game "Hangman with Birds"
 **Creator**: `Allison Anderson`
 - - -
-## ABOUT THE APP
-
 ## Directions: 
 • Must play from your computer browser - sorry - not supported on Mobile at this time. 
 
