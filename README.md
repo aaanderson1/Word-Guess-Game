@@ -9,6 +9,7 @@
 • Hit Reset to play again.
 
 • Link to deployed version: https://aaanderson1.github.io/word-guess-game/
+
 • Link to code on GitHub: https://github.com/aaanderson1/Word-Guess-Game
 
 ![Results](/assets/images/hangman-thumbnail.jpg)
